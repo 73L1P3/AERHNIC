@@ -18,11 +18,11 @@ namespace CRUD_NETCore5.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            IEnumerable<Libro> lstLibro = _context.Libro;
-            return View(lstLibro);
-        }
+        //public IActionResult Index()
+        //{
+        //    IEnumerable<Libro> lstLibro = _context.Libro;
+        //    return View(lstLibro);
+        //}
 
         // HTTP Get Create
         public IActionResult Create()
@@ -31,15 +31,15 @@ namespace CRUD_NETCore5.Controllers
         }
 
         // HTTP POST Create
-        [HttpPost]
-        public IActionResult Create(Libro libro)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Libro.Add(libro);
-                _context.SaveChanges();
-            }
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult Create(Libro libro)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Libro.Add(libro);
+        //        _context.SaveChanges();
+        //    }
+        //    return View();
+        //}
     }
 }
