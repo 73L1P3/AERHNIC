@@ -15,8 +15,6 @@ namespace CRUD_NETCore5.Data
 
         }
 
-        //public DbSet<Libro> Libro { get; set; }
-
         public DbSet<Usuarios> Usuarios { get; set; }
     }
 }
