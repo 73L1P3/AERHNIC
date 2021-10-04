@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CRUD_NETCore5.Migrations
+namespace AERHNIC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211003033024_Migracionsegunda")]
-    partial class Migracionsegunda
+    [Migration("20211004043513_againmigration")]
+    partial class againmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,12 +21,57 @@ namespace CRUD_NETCore5.Migrations
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("AERHNIC.Models.Roles", b =>
+                {
+                    b.Property<Guid>("IdRole")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("NombreRole")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("IdRole");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("AERHNIC.Models.Users_in_Roles", b =>
+                {
+                    b.Property<Guid>("Id_User_Role")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdRole")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdUsuario")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RolesIdRole")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuariosUsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id_User_Role");
+
+                    b.HasIndex("RolesIdRole");
+
+                    b.HasIndex("UsuariosUsuarioId");
+
+                    b.ToTable("Users_in_Roles");
+                });
+
             modelBuilder.Entity("AERHNIC.Models.Usuarios", b =>
                 {
-                    b.Property<int>("ID_Usuario")
+                    b.Property<Guid>("UsuarioId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Cargo_Usuario")
                         .IsRequired()
@@ -74,9 +119,34 @@ namespace CRUD_NETCore5.Migrations
                     b.Property<int>("Telefono_Empresa_Usuario")
                         .HasColumnType("int");
 
-                    b.HasKey("ID_Usuario");
+                    b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("AERHNIC.Models.Users_in_Roles", b =>
+                {
+                    b.HasOne("AERHNIC.Models.Roles", "Roles")
+                        .WithMany("Users_in_Roles")
+                        .HasForeignKey("RolesIdRole");
+
+                    b.HasOne("AERHNIC.Models.Usuarios", "Usuarios")
+                        .WithMany("Users_in_Roles")
+                        .HasForeignKey("UsuariosUsuarioId");
+
+                    b.Navigation("Roles");
+
+                    b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("AERHNIC.Models.Roles", b =>
+                {
+                    b.Navigation("Users_in_Roles");
+                });
+
+            modelBuilder.Entity("AERHNIC.Models.Usuarios", b =>
+                {
+                    b.Navigation("Users_in_Roles");
                 });
 #pragma warning restore 612, 618
         }

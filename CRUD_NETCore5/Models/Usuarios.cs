@@ -9,7 +9,7 @@ namespace AERHNIC.Models
     public class Usuarios
     {
         [Key]
-        public int ID_Usuario { get; set; }
+        public Guid UsuarioId { get; set; }   
 
         [Required(ErrorMessage = "El Nombre del Usuario es Requerido")]
         [StringLength(50, ErrorMessage = "El {0} debe de tener al menos {2} y maximo {1} caracteres", MinimumLength = 3)]
@@ -62,5 +62,7 @@ namespace AERHNIC.Models
 
         [Display(Name = "Estado del Usuario")]
         public string Estado_Usuario { get; set; }
+
+        public List<Users_in_Roles> Users_in_Roles { get; set; }
     }
 }
