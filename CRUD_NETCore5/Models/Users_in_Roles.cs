@@ -10,8 +10,6 @@ namespace AERHNIC.Models
     {
         [Key]
         public Guid Id_User_Role { get; set; }
-        public Guid IdRole { get; set; }
-        public Guid IdUsuario { get; set; }
         public Roles Roles { get; set; }
         public Usuarios Usuarios { get; set; }
     }
