@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AERHNIC.Models
 {
-    public class Usuarios
+    public class Usuarios : IdentityUser
     {
         [Key]
         public Guid UsuarioId { get; set; }   
@@ -15,6 +16,11 @@ namespace AERHNIC.Models
         [StringLength(50, ErrorMessage = "El {0} debe de tener al menos {2} y maximo {1} caracteres", MinimumLength = 3)]
         [Display(Name = "Nombre del Usuario")]
         public string Nombre_Usuario { get; set; }
+
+        [Required(ErrorMessage = "El Clave del Usuario es Requerida")]
+        [StringLength(20, ErrorMessage = "El {0} debe de tener al menos {2} y maximo {1} caracteres", MinimumLength = 3)]
+        [Display(Name = "Clave del Usuario")]
+        public string Clave_Usuario { get; set; }
 
         [Required(ErrorMessage = "El Correo del Usuario es Requerido")]
         [StringLength(50, ErrorMessage = "El {0} debe de tener al menos {2} y maximo {1} caracteres", MinimumLength = 3)]
