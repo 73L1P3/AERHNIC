@@ -22,5 +22,25 @@ namespace AERHNIC.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult GetUsuarios(string nombreUsuario, string clave)
+        {
+            var usuario = _context.Usuarios.Where(x => x.Nombre_Usuario == nombreUsuario && x.Clave_Usuario == clave);
+
+            if (usuario.Any())
+            {
+                if (usuario.Where(x => x.Nombre_Usuario == nombreUsuario && x.Clave_Usuario == clave).Any())
+                {
+                    return Json(new { Status = true, message = "Bienvenido" });
+                } else
+                {
+                    return Json(new { Status = false, message = "Clave Incorrecto" });
+                }
+            } else
+            {
+                return Json(new { Status = false, message = "Usuario Incorrecto" });
+            }           
+        }
     }
 }
