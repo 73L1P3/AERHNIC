@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace AERHNIC.Controllers
+namespace AERHNIC_v2.Controllers
 {
     [Authorize]
     [ApiController]

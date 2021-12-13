@@ -1,0 +1,37 @@
+﻿:root {
+    --main-bg-color: #344DA0;
+    --white-bg-color: #FFFFFC;
+    --spacer: 1rem;
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+.login-form{
+    background-color: var(--white-bg-color);
+}
+
+.mb-1 {
+    margin-bottom: var(--spacer * .25) !important;
+}
+
+.login-container {
+    margin-top: 10em;
+}
+
+
+#calendar {
+    max-width: 700px;
+    margin: auto 3rem;
+    background-color: var(--white-bg-color);
+}
+
+@media screen and (min-width: 400px) {
+}
+
+@media screen and (min-width: 800px) {
+    .login-container {
+        max-width: 30em;
+    }
+}

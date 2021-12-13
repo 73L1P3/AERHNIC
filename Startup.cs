@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
-using AERHNIC.Data;
-using AERHNIC.Models;
+using AERHNIC_v2.Data;
+using AERHNIC_v2.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace AERHNIC
+namespace AERHNIC_v2
 {
     public class Startup
     {

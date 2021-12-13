@@ -1,6 +1,6 @@
 ﻿using System;
-using AERHNIC.Data;
-using AERHNIC.Models;
+using AERHNIC_v2.Data;
+using AERHNIC_v2.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HostingStartup(typeof(AERHNIC.Areas.Identity.IdentityHostingStartup))]
-namespace AERHNIC.Areas.Identity
+[assembly: HostingStartup(typeof(AERHNIC_v2.Areas.Identity.IdentityHostingStartup))]
+namespace AERHNIC_v2.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace AERHNIC.Controllers
+namespace AERHNIC_v2.Controllers
 {
     public class OidcConfigurationController : Controller
     {

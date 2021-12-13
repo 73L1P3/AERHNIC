@@ -1,4 +1,4 @@
-export const ApplicationName = 'AERHNIC';
+export const ApplicationName = 'AERHNIC_v2';
 
 export const ReturnUrlType = 'returnUrl';
 

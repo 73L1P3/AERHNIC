@@ -1,6 +1,6 @@
 using System;
 
-namespace AERHNIC
+namespace AERHNIC_v2
 {
     public class WeatherForecast
     {
